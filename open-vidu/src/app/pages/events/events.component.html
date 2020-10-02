@@ -1,0 +1,6 @@
+<div class="events-container">
+  <h1 class="mat-display-1">Events</h1>
+  <div class="events">
+    <app-card *ngFor="let event of events" [card]="event" (enterEvent)="onEnterEvent($event)"></app-card>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<form class="login-form" (change)="checkError()">
+  <mat-form-field class="login-form__item">
+    <mat-label>Email</mat-label>
+    <input matInput [formControl]="loginFormData.email" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="loginFormData.email.hasError('email') && !loginFormData.email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="loginFormData.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="login-form__item">
+    <mat-label>Password</mat-label>
+    <input matInput [formControl]="loginFormData.password" type="password" placeholder="******">
+    <mat-error *ngIf="loginFormData.password.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="loginFormData.password.hasError('pattern')">
+      Passwords must be: at least 8 characters long, max length anything;
+      include at least 1 lowercase letter; 1 capital letter; 1 number; 1 special character => !@#$%^&*.
+    </mat-error>
+  </mat-form-field>
+  <div class="login-form__item center">
+    <button [disabled]="hasError" (click)="submitForm()" mat-raised-button color="primary" type="button">Login</button>
+  </div>
+</form>

@@ -1,0 +1,32 @@
+<nav class="mat-elevation-z4">
+  <div class="menu-left">
+    <button mat-flat-button color="primary" routerLink="/home">
+      <mat-icon>psychology</mat-icon>&nbsp;Intellectus
+    </button>
+    <button mat-flat-button color="primary" routerLink="/events">Events</button>
+    <button mat-flat-button color="primary" routerLink="/about">About</button>
+  </div>
+  <div class="menu-right">
+    <button *ngIf="!_auth.loggedIn()" mat-flat-button color="primary" routerLink="/login">Login&nbsp;<mat-icon>login
+    </mat-icon>
+    </button>
+    <button *ngIf="_auth.loggedIn()" mat-flat-button color="primary" (click)="_auth.openProfile()">Profile&nbsp;<mat-icon>
+      account_box
+    </mat-icon>
+    </button>
+    <button *ngIf="_auth.loggedIn()" mat-flat-button color="primary" (click)="_auth.logOut()">
+      <mat-icon>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+             focusable="false" width="1em" height="1em"
+             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+          <path
+            d="M16 17v-3H9v-4h7V7l5 5l-5 5M14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"
+            fill="white"/>
+        </svg>
+      </mat-icon>
+    </button>
+  </div>
+</nav>
+
+

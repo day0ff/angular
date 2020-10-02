@@ -1,0 +1,15 @@
+<div class="container center">
+  <h1 class="mat-display-1">Profile</h1>
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>{{user.data.first_name}}&nbsp;{{user.data.last_name}}</mat-card-title>
+    </mat-card-header>
+    <div class="profile-image">
+      <img *ngIf="user.data.avatar" mat-card-image src="{{user.data.avatar}}">
+      <mat-icon *ngIf="!user.data.avatar" color="primary" class="icon">account_box</mat-icon>
+    </div>
+    <mat-card-content>
+      <p>{{user.ad.text}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,15 @@
+.event-container{
+  text-align: center;
+}
+
+.event{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.event > * {
+  margin: 15px;
+}

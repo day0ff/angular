@@ -1,0 +1,34 @@
+<form class="register-form" (change)="checkError()">
+  <mat-form-field class="register-form__item">
+    <mat-label>Email</mat-label>
+    <input matInput [formControl]="registerFormData.email" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="registerFormData.email.hasError('email') && !registerFormData.email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="registerFormData.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="register-form__item">
+    <mat-label>Password</mat-label>
+    <input matInput [formControl]="registerFormData.password" type="password" placeholder="******">
+    <mat-error *ngIf="registerFormData.password.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="registerFormData.password.hasError('pattern')">
+      Passwords must be: at least 8 characters long, max length anything;
+      include at least 1 lowercase letter; 1 capital letter; 1 number; 1 special character => !@#$%^&*.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="register-form__item">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput [formControl]="registerFormData.confirmPassword" type="password" placeholder="******">
+    <mat-error *ngIf="registerFormData.confirmPassword.hasError('required')">
+      Confirm password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="register-form__item center">
+    <button [disabled]="hasError" (click)="submitForm()" mat-raised-button color="primary" type="button">Register
+    </button>
+  </div>
+</form>
